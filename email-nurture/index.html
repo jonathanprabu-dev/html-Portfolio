@@ -1,0 +1,314 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Drive to Demo Nurture Sequence · Jonathan Prabu</title><meta name="description" content="Six-email B2B nurture sequence by Jonathan Prabu, companion to the Drive to Demo case study."><style>body{margin:0}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: companion to the Drive to Demo case study, same committed red world. A day-by-day rail runs down the page; each email is a "send sheet" (meta strip + the email itself on a lighter paper panel). Single dark look by choice. */
+:root{
+  color-scheme:dark;
+  --bg:#2B070A; --surface:#3D0B10; --surface-2:#51121A; --line:#6E2029;
+  --fg:#FFFFFF; --muted:#F2C6C9; --red:#E3262E; --red-deep:#B3141C;
+  --paper:#FFF6F5; --ink:#2B070A; --ink-muted:#7A3A40;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Barlow","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--fg)}
+a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,6.5vw,4rem);font-weight:800;text-transform:uppercase}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;text-transform:uppercase}
+h3{font-size:1.3rem;font-weight:700}
+p{margin:0;max-width:65ch}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+
+.hero{background:var(--red);padding-inline:20px;padding-block:44px 40px}
+.in{max-width:920px;margin:0 auto}
+.hero .in{display:flex;flex-direction:column;gap:16px}
+.hero .eyebrow{color:#fff;opacity:.88}
+.lede{font-size:1.2rem;max-width:62ch}
+.tag{font-family:var(--mono);font-size:.76rem;border:1px solid rgba(255,255,255,.65);padding:6px 10px;border-radius:4px;align-self:flex-start}
+.back{font-family:var(--mono);font-size:.8rem}
+
+.wrap{padding-inline:20px;padding-block:48px 64px}
+.wrap>.in{display:flex;flex-direction:column;gap:56px}
+section{display:flex;flex-direction:column;gap:18px}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.kpi{background:var(--surface);padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi b{font-family:var(--display);font-size:2.2rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:.86rem;color:var(--muted);line-height:1.35}
+@media (max-width:680px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.arc{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.arc div{background:var(--surface);border-top:3px solid var(--red);padding:10px 10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.arc b{font-family:var(--display);font-size:1.05rem;line-height:1.15}
+.arc span{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.06em}
+.arc .stage{font-size:.82rem;color:var(--muted)}
+@media (max-width:760px){.arc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Sequence rail */
+.seq{display:flex;flex-direction:column;gap:28px;position:relative}
+.send{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px}
+.day{display:flex;flex-direction:column;align-items:flex-start;gap:4px;position:relative}
+.day b{font-family:var(--display);font-size:2.4rem;font-weight:800;line-height:1}
+.day span{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.sheet{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;overflow:hidden;min-width:0}
+.meta{background:var(--surface);padding:14px 18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.meta div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.meta small{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.meta p{font-size:.92rem;line-height:1.4}
+.mail{background:var(--paper);color:var(--ink);padding:18px 20px 20px;display:flex;flex-direction:column;gap:12px}
+.hdr{display:grid;gap:3px;border-bottom:1px solid #EBCFCF;padding-bottom:10px;font-size:.92rem}
+.hdr div{display:flex;gap:10px;min-width:0}
+.hdr small{font-family:var(--mono);font-size:.7rem;color:var(--ink-muted);width:62px;flex:none;padding-top:2px}
+.hdr .subj{font-weight:600}
+.mail p{font-size:.98rem;color:var(--ink)}
+.cta{align-self:flex-start;background:var(--red);color:#fff;font-weight:600;font-size:.92rem;padding:8px 14px;border-radius:4px}
+.alt{font-size:.85rem;color:var(--ink-muted)}
+.alt b{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+@media (max-width:640px){
+  .send{grid-template-columns:minmax(0,1fr);gap:10px}
+  .day{flex-direction:row;align-items:baseline;gap:10px}
+  .meta{grid-template-columns:minmax(0,1fr)}
+}
+
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.rule small{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:760px){.rules{grid-template-columns:minmax(0,1fr)}}
+.pts{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:.92rem;background:var(--surface)}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+tr.tot td{background:var(--surface-2);font-weight:600}
+
+footer{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:8px;font-size:.9rem;color:var(--muted)}
+footer strong{color:var(--fg);font-family:var(--display);font-size:1.3rem;text-transform:uppercase;letter-spacing:.02em}
+.contact{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--fg)}
+</style>
+
+<header class="hero"><div class="in">
+  <span class="eyebrow">Email nurture sequence · Companion to the Drive to Demo case study</span>
+  <h1>Six emails from download to demo</h1>
+  <p class="lede">The nurture sequence behind the Drive to Demo funnel. It turns people who downloaded the Workshop Productivity Benchmark into marketing-qualified leads and booked demos for an AI repair-guidance platform.</p>
+  <span class="tag">Modelled sample · email copy written for the case study · targets are benchmark-based · client anonymised as [Platform]</span>
+  <a class="back" href="../drive-to-demo/" >← Read the full Drive to Demo case study</a>
+</div></header>
+
+<div class="wrap"><div class="in">
+
+<section>
+  <div class="kpis">
+    <div class="kpi"><b>6</b><span>Emails over 21 days</span></div>
+    <div class="kpi"><b>188</b><span>Leads entering from the gated report</span></div>
+    <div class="kpi"><b>38%</b><span>Target average open rate</span></div>
+    <div class="kpi"><b>66</b><span>Target MQLs (35% of leads) → 20 demos</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Sequence logic</span>
+  <h2>One argument, told in six steps</h2>
+  <p>Each email answers the next question a service head would ask before agreeing to a demo. The sequence moves from their problem, to what it costs, to proof, to money, to a single clear ask.</p>
+  <div class="arc">
+    <div><span>DAY 0</span><b>The problem</b><span class="stage">Recognise</span></div>
+    <div><span>DAY 2</span><b>Cost of comebacks</b><span class="stage">Quantify</span></div>
+    <div><span>DAY 5</span><b>How it works</b><span class="stage">Understand</span></div>
+    <div><span>DAY 9</span><b>Walkthrough</b><span class="stage">Believe</span></div>
+    <div><span>DAY 14</span><b>ROI calculator</b><span class="stage">Justify</span></div>
+    <div><span>DAY 21</span><b>Demo invite</b><span class="stage">Act</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">The emails</span>
+  <h2>What each send says, and why</h2>
+  <div class="seq">
+
+    <article class="send">
+      <div class="day"><span>Day</span><b>0</b></div>
+      <div class="sheet">
+        <div class="meta">
+          <div><small>Email 1 · Goal</small><p>Deliver the report and name the problem in their words.</p></div>
+          <div><small>Trigger</small><p>Sent right after the benchmark report download.</p></div>
+          <div><small>Target</small><p>48% open · 6% click</p></div>
+        </div>
+        <div class="mail">
+          <div class="hdr">
+            <div><small>Subject</small><span class="subj">Your Workshop Productivity Benchmark (and the number most workshops miss)</span></div>
+            <div><small>Preview</small><span>Page 4 is the one service heads tell us they reread.</span></div>
+          </div>
+          <p>Hi {First name},</p>
+          <p>Here is your copy of the Workshop Productivity Benchmark.</p>
+          <p>Most service heads track bay utilisation and hours sold. Far fewer track first-time fix rate: how many jobs leave the workshop and never come back for the same fault. It is the number that quietly sets your margin, your customer ratings and how much time your senior technicians spend checking other people's work.</p>
+          <p>Page 4 shows where workshops like yours typically land, and what the best performers do differently.</p>
+          <span class="cta">Download the benchmark</span>
+          <p class="alt"><b>Variant</b>Dealer principals get the subject line "Where your service revenue leaks: the 2026 workshop benchmark".</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="send">
+      <div class="day"><span>Day</span><b>2</b></div>
+      <div class="sheet">
+        <div class="meta">
+          <div><small>Email 2 · Goal</small><p>Turn the problem into a cost they can put a number on.</p></div>
+          <div><small>Content</small><p>A simple worked example the reader can redo with their own figures.</p></div>
+          <div><small>Target</small><p>42% open · 5% click</p></div>
+        </div>
+        <div class="mail">
+          <div class="hdr">
+            <div><small>Subject</small><span class="subj">What one comeback a day really costs your workshop</span></div>
+            <div><small>Preview</small><span>It is more than the labour hours.</span></div>
+          </div>
+          <p>Hi {First name},</p>
+          <p>A comeback costs more than the repeat labour. The bay is blocked, a paying job waits, a senior technician stops to diagnose, and the customer starts wondering whether to come back at all.</p>
+          <p>Try this with your own numbers: comebacks per week × average hours to redo × your hourly bay rate. Then add the jobs you could not take while that bay was busy. For most workshops, the total is larger than the training budget.</p>
+          <p>We put the sum into a one-page worksheet you can fill in with your team in 10 minutes.</p>
+          <span class="cta">Get the comeback cost worksheet</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="send">
+      <div class="day"><span>Day</span><b>5</b></div>
+      <div class="sheet">
+        <div class="meta">
+          <div><small>Email 3 · Goal</small><p>Explain the product in workshop terms, not AI terms.</p></div>
+          <div><small>Content</small><p>60-second video of a technician following guided repair steps.</p></div>
+          <div><small>Target</small><p>38% open · 7% click</p></div>
+        </div>
+        <div class="mail">
+          <div class="hdr">
+            <div><small>Subject</small><span class="subj">Right first time: what that looks like in the bay</span></div>
+            <div><small>Preview</small><span>A 60-second video. No slides.</span></div>
+          </div>
+          <p>Hi {First name},</p>
+          <p>[Platform] guides each technician through the repair, step by step, on the vehicle in front of them. It checks the steps that most often cause a repeat visit before the job is closed.</p>
+          <p>For your newer technicians, it is like having your best senior technician standing next to them. For your senior technicians, it means fewer interruptions.</p>
+          <p>This 60-second video shows a real repair from job card to sign-off.</p>
+          <span class="cta">Watch the 60-second repair</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="send">
+      <div class="day"><span>Day</span><b>9</b></div>
+      <div class="sheet">
+        <div class="meta">
+          <div><small>Email 4 · Goal</small><p>Build belief through a workshop they can picture.</p></div>
+          <div><small>Content</small><p>Customer-style walkthrough of a dealer workshop's first 30 days.</p></div>
+          <div><small>Target</small><p>36% open · 6% click</p></div>
+        </div>
+        <div class="mail">
+          <div class="hdr">
+            <div><small>Subject</small><span class="subj">Inside a dealer workshop's first 30 days with guided repairs</span></div>
+            <div><small>Preview</small><span>Week 1 was the hardest part. Here is why.</span></div>
+          </div>
+          <p>Hi {First name},</p>
+          <p>Here is how a typical rollout runs in a dealer workshop. Week 1: set up on two bays with the technicians who are most open to it. Week 2: the service head reviews which repair steps were skipped most often. Weeks 3–4: the rest of the floor joins, and new joiners use guided steps from their first day.</p>
+          <p>The walkthrough covers what changed for the service head, the technicians and the customer, and the questions the team asked along the way.</p>
+          <span class="cta">Read the 30-day walkthrough</span>
+          <p class="alt"><b>Next step</b>Once the pilots run, this email is replaced by a real pilot case study.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="send">
+      <div class="day"><span>Day</span><b>14</b></div>
+      <div class="sheet">
+        <div class="meta">
+          <div><small>Email 5 · Goal</small><p>Give the champion the numbers to take to the dealer principal.</p></div>
+          <div><small>Content</small><p>Interactive ROI calculator using the reader's own workshop figures.</p></div>
+          <div><small>Target</small><p>34% open · 9% click</p></div>
+        </div>
+        <div class="mail">
+          <div class="hdr">
+            <div><small>Subject</small><span class="subj">Will it pay for itself? Run your own numbers</span></div>
+            <div><small>Preview</small><span>Four inputs. Two minutes. One page for your GM.</span></div>
+          </div>
+          <p>Hi {First name},</p>
+          <p>If you need to make the case to your dealer principal or GM, start here. Enter four numbers: bays, technicians, comebacks per month and your bay rate.</p>
+          <p>The calculator shows your monthly comeback cost, the hours your senior technicians could get back, and the payback period for a pilot. It produces a one-page summary you can forward.</p>
+          <span class="cta">Open the ROI calculator</span>
+          <p class="alt"><b>Scoring</b>Using the calculator alone makes a lead an MQL.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="send">
+      <div class="day"><span>Day</span><b>21</b></div>
+      <div class="sheet">
+        <div class="meta">
+          <div><small>Email 6 · Goal</small><p>One clear ask: a 20-minute demo on their own repair types.</p></div>
+          <div><small>Sender</small><p>From a named solutions lead, written as a personal note.</p></div>
+          <div><small>Target</small><p>30% open · 8% click</p></div>
+        </div>
+        <div class="mail">
+          <div class="hdr">
+            <div><small>Subject</small><span class="subj">20 minutes, your three most common repairs</span></div>
+            <div><small>Preview</small><span>Bring the jobs that come back most often.</span></div>
+          </div>
+          <p>Hi {First name},</p>
+          <p>Over the past three weeks I have sent the benchmark, the comeback worksheet, a repair video and the ROI calculator. If any of it matched what you see in your workshop, the next step is simple.</p>
+          <p>Pick your three most common repairs, or the three that come back most often. In 20 minutes, I will show you exactly how [Platform] would guide your technicians through each one.</p>
+          <p>No slides, and no obligation.</p>
+          <span class="cta">Book a 20-minute demo</span>
+          <p class="alt"><b>Fallback</b>Non-openers get one resend 3 days later with the subject "Still losing hours to repeat repairs?"</p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Rules that run the sequence</span>
+  <h2>Who gets what, and when they leave</h2>
+  <div class="rules">
+    <div class="rule"><small>Segmentation</small><h3>Two tracks, one sequence</h3>
+      <ul class="pts"><li>Service and workshop heads (60% of leads): throughput, comebacks, technician time.</li><li>Dealer principals and GMs: service revenue, retention and payback.</li><li>Same six steps, different subject lines and proof points.</li></ul></div>
+    <div class="rule"><small>MQL scoring</small><h3>When a lead becomes an MQL</h3>
+      <ul class="pts"><li>Uses the ROI calculator, or</li><li>Clicks in 2 or more emails, or</li><li>Visits the pricing or demo page.</li><li>Leads that score are handed to sales within 24 hours.</li></ul></div>
+    <div class="rule"><small>Exit and fallback</small><h3>Stop selling once they say yes</h3>
+      <ul class="pts"><li>Booking a demo removes the lead from the sequence at once.</li><li>Non-openers of email 6 get one resend with a new subject.</li><li>No engagement after 21 days: move to a monthly newsletter.</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Measurement</span>
+  <h2>Targets by email</h2>
+  <p>Benchmark-based targets used to judge each send. Any email that misses its open target twice gets a new subject line test; any that misses its click target gets a new call to action.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Email</th><th>Day</th><th class="n">Open rate</th><th class="n">Click rate</th><th>Moves the lead to</th></tr></thead>
+      <tbody>
+        <tr><td>1 · The problem</td><td>0</td><td class="n">48%</td><td class="n">6%</td><td>Recognises the problem</td></tr>
+        <tr><td>2 · Cost of comebacks</td><td>2</td><td class="n">42%</td><td class="n">5%</td><td>Puts a number on it</td></tr>
+        <tr><td>3 · How it works</td><td>5</td><td class="n">38%</td><td class="n">7%</td><td>Understands the fix</td></tr>
+        <tr><td>4 · Walkthrough</td><td>9</td><td class="n">36%</td><td class="n">6%</td><td>Believes it works</td></tr>
+        <tr><td>5 · ROI calculator</td><td>14</td><td class="n">34%</td><td class="n">9%</td><td>Can justify the spend</td></tr>
+        <tr><td>6 · Demo invite</td><td>21</td><td class="n">30%</td><td class="n">8%</td><td>Books a demo</td></tr>
+        <tr class="tot"><td>Sequence</td><td>21 days</td><td class="n">38%</td><td class="n">6.8%</td><td>66 MQLs → 20 demos</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <strong>Jonathan Prabu</strong>
+  <span>Business and growth executive · B2B go-to-market · Marketing funnel design · Email nurture and lifecycle marketing</span>
+  <div class="contact"><span>jonathanprabu@gmail.com</span><a href="https://www.linkedin.com/in/jonathan-prabu-2652b890/" target="_blank" rel="noopener">linkedin.com/in/jonathan-prabu-2652b890</a></div>
+  <span>Modelled sample. The client is anonymised as [Platform]. Email copy was written for the Drive to Demo case study, and all rates are benchmark-based targets, not campaign results.</span>
+</footer>
+
+</div></div>
+</body></html>

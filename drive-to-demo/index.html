@@ -1,0 +1,266 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Drive to Demo Case Study · Jonathan Prabu</title><meta name="description" content="Modelled 90-day B2B launch case study for an AI repair-guidance platform by Jonathan Prabu."></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single committed red world with white type; stacked trapezoid funnel as the centrepiece; formula "spec sheets" in mono */
+:root{
+  color-scheme:dark;
+  --bg:#2B070A; --surface:#3D0B10; --surface-2:#51121A; --line:#6E2029;
+  --fg:#FFFFFF; --muted:#F2C6C9; --red:#E3262E; --red-deep:#B3141C;
+  --t1:#E3262E; --t2:#CB1D25; --t3:#AE161E; --t4:#901219; --t5:#FFFFFF;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Barlow","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6}
+.hero{background:var(--red);padding-inline:20px;padding-block:44px 40px}
+.hero-in,.wrap{max-width:900px;margin:0 auto}
+.hero-in{display:flex;flex-direction:column;gap:16px}
+.wrap{padding-inline:20px;padding-block:48px 64px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;text-wrap:balance;margin:0;color:var(--fg)}
+h1{font-size:clamp(2.4rem,7vw,4.2rem);font-weight:800;text-transform:uppercase;letter-spacing:.005em}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;text-transform:uppercase}
+h3{font-size:1.25rem;font-weight:700;letter-spacing:.01em}
+p{margin:0;max-width:65ch}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero .eyebrow{color:#FFFFFF;opacity:.85}
+.lede{font-size:1.2rem;max-width:60ch}
+.tag{font-family:var(--mono);font-size:.76rem;border:1px solid rgba(255,255,255,.6);color:#FFFFFF;padding:6px 10px;border-radius:4px;align-self:flex-start}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-family:var(--mono);font-size:.74rem;background:rgba(0,0,0,.18);padding:4px 10px;border-radius:999px}
+section{display:flex;flex-direction:column;gap:18px}
+.muted{color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.kpi{background:var(--surface);padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi b{font-family:var(--display);font-size:2.2rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:.86rem;color:var(--muted);line-height:1.35}
+@media (max-width:680px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.three>div{border-top:3px solid var(--red);padding-top:12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+@media (max-width:720px){.three{grid-template-columns:1fr}}
+.pos{background:var(--surface-2);border-left:4px solid var(--red);padding:18px 22px;font-size:1.15rem;border-radius:0 8px 8px 0}
+.result{display:flex;gap:10px;align-items:baseline;font-size:.97rem}
+.result::before{content:"Target";font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--red);color:#FFFFFF;padding:2px 8px;border-radius:3px;flex:none}
+.segs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.seg{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.seg small{font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:760px){.segs{grid-template-columns:1fr}}
+/* funnel */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:4px;padding-block:8px}
+.tier{width:var(--w);min-width:0;box-sizing:border-box;clip-path:polygon(0 0,100% 0,calc(100% - 4.5%) 100%,4.5% 100%);padding:16px 9% 14px;text-align:center;display:flex;flex-direction:column;gap:2px;color:#FFFFFF}
+.tier .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.tier .nm{font-family:var(--display);font-weight:700;font-size:clamp(1.05rem,2.6vw,1.35rem);line-height:1.1}
+.tier .val{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,4vw,2rem);line-height:1.1;font-variant-numeric:tabular-nums}
+.tier .sub{font-size:.8rem;opacity:.9}
+.tier:nth-child(1){--w:100%;background:var(--t1)}
+.tier:nth-child(2){--w:88%;background:var(--t2)}
+.tier:nth-child(3){--w:76%;background:var(--t3)}
+.tier:nth-child(4){--w:64%;background:var(--t4)}
+.tier:nth-child(5){--w:52%;background:var(--t5);color:var(--red-deep)}
+@media (max-width:520px){.tier{--w:100%!important;clip-path:none;border-radius:6px;padding-inline:14px}}
+.outcome{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.outcome .arrow{width:0;height:0;border-left:18px solid transparent;border-right:18px solid transparent;border-top:22px solid var(--fg)}
+.outcome b{font-family:var(--display);font-size:clamp(1.6rem,4.5vw,2.3rem);font-weight:800;text-transform:uppercase}
+.rates{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.rates div{background:var(--surface);border-radius:6px;padding:10px 12px;font-size:.85rem;min-width:0}
+.rates b{display:block;font-family:var(--display);font-size:1.4rem;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.rates{grid-template-columns:repeat(2,1fr)}}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:.92rem;background:var(--surface)}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.n{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+tr.tot td{background:var(--surface-2);font-weight:600}
+.pill{font-family:var(--mono);font-size:.7rem;padding:2px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:.06em}
+.go{background:#FFFFFF;color:var(--red-deep)}.hold{background:var(--red);color:#FFFFFF}
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.pillar{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+@media (max-width:640px){.pillars{grid-template-columns:1fr}}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:720px){.specs{grid-template-columns:1fr}}
+.spec{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.spec.wide{grid-column:1/-1}
+.formula{font-family:var(--mono);font-size:.82rem;background:var(--bg);border-radius:6px;padding:10px 12px;overflow-x:auto;white-space:pre;line-height:1.7}
+.ans{font-family:var(--display);font-weight:800;font-size:1.8rem;line-height:1;font-variant-numeric:tabular-nums}
+.ans small{font-family:var(--body);font-weight:400;font-size:.9rem;color:var(--muted)}
+.dec{font-size:.93rem}
+.dec b{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:8px}
+li{max-width:65ch}
+footer{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:8px;font-size:.9rem;color:var(--muted)}
+footer strong{color:var(--fg);font-family:var(--display);font-size:1.3rem;text-transform:uppercase;letter-spacing:.02em}
+@media (prefers-reduced-motion:no-preference){.tier{transition:transform .2s ease}.tier:hover{transform:translateY(-2px)}}
+</style>
+
+<div class="hero"><div class="hero-in">
+  <span class="eyebrow">B2B growth case study · AI automotive technology</span>
+  <h1>Drive to Demo: a 90-day B2B launch for an AI repair-guidance platform</h1>
+  <p class="lede">A full-funnel lead generation campaign across LinkedIn and Google Ads, built to turn automotive service leaders into qualified demos and paid pilots.</p>
+  <div class="chips"><span>B2B SaaS</span><span>Paid Social</span><span>Google Ads</span><span>Lead Generation</span><span>Brand Awareness</span></div>
+  <span class="tag">Modelled scenario · figures are benchmark-based projections, client anonymised</span>
+</div></div>
+
+<div class="wrap">
+
+<section>
+  <div class="kpis" role="list">
+    <div class="kpi" role="listitem"><b>228K</b><span>Impressions with decision-makers</span></div>
+    <div class="kpi" role="listitem"><b>$64</b><span>Cost per lead, across 188 leads</span></div>
+    <div class="kpi" role="listitem"><b>20</b><span>Qualified demos booked</span></div>
+    <div class="kpi" role="listitem"><b>2.5x</b><span>ROAS on first-year contract value</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">The brief</span>
+  <h2>Mission, vision and growth goal</h2>
+  <div class="three">
+    <div><h3>Mission</h3><p>Help automotive service teams fix vehicles right the first time, with AI guidance at every repair step.</p></div>
+    <div><h3>Vision</h3><p>Become the standard repair-execution platform for dealership and fleet workshops across India.</p></div>
+    <div><h3>Growth goal</h3><p>In 90 days, build brand discovery with service leaders and create a measurable pipeline of demos and pilots on a $12,000 budget.</p></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">01 · Brand Positioning Strategy</span>
+  <h2>From "AI tool" to workshop productivity partner</h2>
+  <p>Service leaders do not buy AI. They buy fewer comebacks, faster repairs and technicians who get productive sooner. The positioning led with those business outcomes.</p>
+  <div class="pos">For dealership and fleet service heads who lose hours to repeat repairs and skills gaps, the platform guides every technician through each repair step so jobs are done right the first time.</div>
+  <p class="result">Branded search impressions up 40% by the end of the quarter.</p>
+</section>
+
+<section>
+  <span class="eyebrow">02 · Target Positioning</span>
+  <h2>Three buyers, one buying committee</h2>
+  <div class="segs">
+    <div class="seg"><small>Economic buyer</small><h3>Dealer principals &amp; GMs</h3><p>Care about service revenue and customer retention.</p><p class="result">ROI message, LinkedIn</p></div>
+    <div class="seg"><small>Champion</small><h3>Service &amp; workshop heads</h3><p>Care about bay throughput, comebacks and training time.</p><p class="result">60% of all leads</p></div>
+    <div class="seg"><small>Scale account</small><h3>OEM after-sales &amp; fleets</h3><p>Care about consistency across a network of workshops.</p><p class="result">Account-based targeting</p></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">03 · Marketing Funnel</span>
+  <h2>Traffic to lead page to nurture to demo</h2>
+  <p>Each stage had its own goal and its own measure: impressions, clicks, CTR, leads and conversions.</p>
+  <div class="funnel">
+    <div class="tier"><span class="lbl">Awareness &amp; traffic</span><span class="nm">LinkedIn + Google Search ads</span><span class="val">2,350 clicks</span><span class="sub">from 228K impressions · 1.0% blended CTR</span></div>
+    <div class="tier"><span class="lbl">Lead generation</span><span class="nm">Lead page: benchmark report</span><span class="val">188 leads</span><span class="sub">8% landing-page conversion</span></div>
+    <div class="tier"><span class="lbl">Engagement</span><span class="nm">6-email nurture sequence</span><span class="val">66 MQLs</span><span class="sub">38% open rate</span></div>
+    <div class="tier"><span class="lbl">Conversion</span><span class="nm">Demo booking page</span><span class="val">20 demos</span><span class="sub">30% of MQLs</span></div>
+    <div class="tier"><span class="lbl">Revenue</span><span class="nm">Paid pilots signed</span><span class="val">2 pilots</span><span class="sub">$15,000 annual value each</span></div>
+  </div>
+  <div class="outcome"><span class="arrow" aria-hidden="true"></span><b>$300K pipeline · $30K contracted</b><span class="muted">from $12,000 in ad spend</span></div>
+  <div class="rates">
+    <div>Click to lead<b>8.0%</b></div>
+    <div>Lead to MQL<b>35%</b></div>
+    <div>MQL to demo<b>30%</b></div>
+    <div>Demo to pilot<b>10%</b></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Channel mix</span>
+  <h2>Where the budget went</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Channel</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Avg CPC</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td>LinkedIn Ads (Paid Social)</td><td class="n">$7,000</td><td class="n">200,000</td><td class="n">1,100</td><td class="n">0.55%</td><td class="n">$6.36</td><td>Awareness, job-title targeting</td></tr>
+        <tr><td>Google Search Ads</td><td class="n">$5,000</td><td class="n">27,800</td><td class="n">1,250</td><td class="n">4.5%</td><td class="n">$4.00</td><td>High-intent demand capture</td></tr>
+        <tr class="tot"><td>Total</td><td class="n">$12,000</td><td class="n">227,800</td><td class="n">2,350</td><td class="n">1.03%</td><td class="n">$5.11</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">04 · Content Strategy</span>
+  <h2>Content that earns the click</h2>
+  <div class="pillars">
+    <div class="pillar"><h3>Proof, not promises</h3><p>Short LinkedIn videos showing a technician following AI step-by-step guidance on a real repair.</p><p class="result">0.55% CTR, above a typical 0.4% LinkedIn benchmark</p></div>
+    <div class="pillar"><h3>Gated benchmark report</h3><p>"Workshop Productivity Benchmark" built from market and competitive research, offered in exchange for an email.</p><p class="result">8% lead-page conversion</p></div>
+    <div class="pillar"><h3>Intent keywords</h3><p>Search ads on terms like "workshop management software", "technician training platform" and "first-time fix rate".</p><p class="result">4.5% CTR at $4.00 CPC</p></div>
+    <div class="pillar"><h3>Nurture sequence</h3><p>Six emails: problem, cost of comebacks, how it works, customer-style walkthrough, ROI calculator, demo invite.</p><p class="result">38% open rate, 66 MQLs</p><p><a href="../email-nurture/" style="color:#fff">Read all six emails →</a></p></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">05 · Profitability model</span>
+  <h2>The maths behind every budget call</h2>
+  <p>Assumes $15,000 first-year contract value per pilot and a 70% gross margin, typical for B2B software.</p>
+  <div class="specs">
+    <div class="spec">
+      <h3>ROAS</h3>
+      <div class="formula">ROAS = Contract value ÷ Ad spend
+     = $30,000 ÷ $12,000</div>
+      <div class="ans">2.5x <small>(250%)</small></div>
+      <p class="dec"><b>Decision</b>Campaign is returning well above spend in year one.</p>
+    </div>
+    <div class="spec">
+      <h3>Net ROI</h3>
+      <div class="formula">Gross profit = $30,000 × 70% = $21,000
+Net ROI     = ($21,000 − $12,000) ÷ $12,000</div>
+      <div class="ans">75% <small>net ROI</small></div>
+      <p class="dec"><b>Decision</b>Profitable after delivery costs, before counting renewals.</p>
+    </div>
+    <div class="spec">
+      <h3>Break-even ROAS</h3>
+      <div class="formula">Break-even ROAS = 1 ÷ Gross margin
+                = 1 ÷ 0.70</div>
+      <div class="ans">1.43x</div>
+      <p class="dec"><b>Decision</b>Any channel below 1.43x loses money and gets cut or reworked.</p>
+    </div>
+    <div class="spec">
+      <h3>Max CPC bid</h3>
+      <div class="formula">Max CPC = (Contract value ÷ Target ROAS)
+          × Click-to-deal rate
+        = ($15,000 ÷ 2.0) × (2 ÷ 2,350)</div>
+      <div class="ans">$6.38 <small>per click ceiling</small></div>
+      <p class="dec"><b>Decision</b>LinkedIn at $6.36 sits right at the ceiling. Tighten targeting before adding budget.</p>
+    </div>
+    <div class="spec wide">
+      <h3>Revenue per click (RPC) by channel</h3>
+      <div class="formula">RPC               = Contract value ÷ Clicks = $30,000 ÷ 2,350 = $12.77
+Target max CPC    = RPC ÷ Target ROAS 2.5x               = $5.11
+Break-even CPC    = RPC ÷ 1.43x                          = $8.94
+Max cost per deal = $15,000 ÷ 2.5                        = $6,000</div>
+      <div class="ans">$5.11 <small>target CPC · $8.94 break-even</small></div>
+      <p class="dec"><b>Decision</b>Google Search ($4.00) beats the target, so it gets more budget next quarter. LinkedIn ($6.36) is profitable but above target, so it stays for awareness with narrower targeting.</p>
+    </div>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Channel</th><th>Avg CPC</th><th>Target CPC</th><th>Break-even CPC</th><th>Next quarter</th></tr></thead>
+      <tbody>
+        <tr><td>Google Search Ads</td><td class="n">$4.00</td><td class="n">$5.11</td><td class="n">$8.94</td><td><span class="pill go">Scale +40%</span></td></tr>
+        <tr><td>LinkedIn Ads</td><td class="n">$6.36</td><td class="n">$5.11</td><td class="n">$8.94</td><td><span class="pill hold">Hold · refine</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">06 · Growth plan</span>
+  <h2>Next 90 days</h2>
+  <ol>
+    <li>Move 40% more budget into Google Search, where cost per click is below target.</li>
+    <li>Narrow LinkedIn to service heads at dealer groups with 5+ workshops to bring CPC under $5.11.</li>
+    <li>Turn the 2 pilots into case studies and use them as proof in the nurture sequence.</li>
+    <li>Run account-based campaigns for 25 named OEM after-sales and fleet accounts.</li>
+    <li>Review ROAS, CPL and pipeline weekly, and scale only what runs above break-even.</li>
+  </ol>
+</section>
+
+<footer>
+  <strong>Jonathan Prabu</strong>
+  <span>Business and growth executive · B2B go-to-market · Marketing funnel design · Performance marketing economics</span>
+  <span style="color:#fff">jonathanprabu@gmail.com · <a href="https://www.linkedin.com/in/jonathan-prabu-2652b890/" style="color:#fff">LinkedIn</a> · <a href="../email-nurture/" style="color:#fff">6-email nurture sequence</a></span>
+  <span>Modelled case study. The client is anonymised and all campaign figures are projections based on typical B2B SaaS benchmarks. The strategy draws on market research and competitive intelligence I have delivered for AI automotive-technology clients.</span>
+</footer>
+
+</div>
+
+</body></html>
